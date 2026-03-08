@@ -1,7 +1,4 @@
 {
   "/page": "app/page.js",
-  "/games/three-card-poker/page": "app/games/three-card-poker/page.js",
-  "/games/slots/page": "app/games/slots/page.js",
-  "/games/blackjack/page": "app/games/blackjack/page.js",
-  "/games/inside-track/page": "app/games/inside-track/page.js"
+  "/games/three-card-poker/page": "app/games/three-card-poker/page.js"
 }

@@ -7,9 +7,6 @@ export function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg">
-              <Coins className="w-6 h-6 text-black" />
-            </div>
             <div>
               <h1 className="text-2xl font-bold text-white">FiveBet</h1>
               <p className="text-xs text-amber-400">Crypto Casino</p>

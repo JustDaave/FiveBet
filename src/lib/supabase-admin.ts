@@ -1,9 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 
-import { getServerEnv } from "@/lib/server-env";
+import { getSupabaseServerEnv } from "@/lib/server-env";
 
 export function getSupabaseAdminClient() {
-  const env = getServerEnv();
+  const env = getSupabaseServerEnv();
 
   return createClient(env.supabaseUrl, env.supabaseServiceRoleKey, {
     auth: {

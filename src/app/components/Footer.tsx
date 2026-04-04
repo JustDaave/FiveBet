@@ -1,4 +1,7 @@
-import { Coins, Twitter, MessageCircle, Globe } from 'lucide-react';
+import { Twitter, MessageCircle, Globe } from 'lucide-react';
+import Image from 'next/image';
+
+import logo from '@/images/logo.png';
 
 export function Footer() {
   return (
@@ -7,9 +10,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg">
-                <Coins className="w-6 h-6 text-black" />
-              </div>
+              <Image
+                src={logo}
+                alt="FiveBet logo"
+                className="h-12 w-auto rounded-lg"
+              />
               <div>
                 <h3 className="text-xl font-bold text-white">FiveBet</h3>
                 <p className="text-xs text-amber-400">Crypto Casino</p>

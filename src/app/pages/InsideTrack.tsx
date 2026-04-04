@@ -8,22 +8,6 @@ import { ArrowLeft, Play, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default function InsideTrack() {
-  const leaderboardData = [
-    { rank: 1, name: 'RaceDay_King', winnings: '$16,700', gamesWon: 34 },
-    { rank: 2, name: 'BettingBoss', winnings: '$14,200', gamesWon: 29 },
-    { rank: 3, name: 'TrackStar', winnings: '$11,900', gamesWon: 25 },
-    { rank: 4, name: 'TipsterPro', winnings: '$9,600', gamesWon: 21 },
-    { rank: 5, name: 'DerbyDynamo', winnings: '$8,100', gamesWon: 18 },
-  ];
-
-  const recentGames = [
-    { player: 'RaceDay_King', bet: '$1,000', result: 'win' as const, payout: '$5,000', time: '2 min ago' },
-    { player: 'BettingBoss', bet: '$750', result: 'loss' as const, payout: '$750', time: '6 min ago' },
-    { player: 'TrackStar', bet: '$500', result: 'win' as const, payout: '$2,000', time: '8 min ago' },
-    { player: 'TipsterPro', bet: '$1,200', result: 'win' as const, payout: '$3,600', time: '11 min ago' },
-    { player: 'DerbyDynamo', bet: '$400', result: 'loss' as const, payout: '$400', time: '14 min ago' },
-  ];
-
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -49,11 +33,6 @@ export default function InsideTrack() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
-                  <div className="absolute top-4 right-4 flex items-center gap-2 bg-red-500 px-4 py-2 rounded-full">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                    <span className="text-white font-semibold">LIVE</span>
-                  </div>
-                  
                   <div className="absolute bottom-6 left-6 right-6">
                     <h1 className="text-4xl font-bold text-white mb-2">Inside Track</h1>
                     <p className="text-zinc-300 text-lg">Virtual horse racing with real-time betting action!</p>
@@ -69,12 +48,7 @@ export default function InsideTrack() {
               </div>
               
               <div className="mb-8">
-                <LiveGameStats 
-                  activePlayers={15}
-                  totalBets="$38,900"
-                  biggestWin="$16,700"
-                  winRate="35.2%"
-                />
+                <LiveGameStats />
               </div>
               
               <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6 mb-8">
@@ -111,61 +85,24 @@ export default function InsideTrack() {
                 </div>
               </div>
               
-              <RecentGames games={recentGames} />
+              <RecentGames games={[]} />
             </div>
             
             <div className="lg:col-span-1">
-              <Leaderboard players={leaderboardData} />
+              <Leaderboard players={[]} />
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Next Race</h3>
-                <div className="text-center py-4 mb-4">
-                  <div className="text-3xl font-bold text-amber-400 mb-1">
-                    2:45
-                  </div>
-                  <p className="text-zinc-400 text-sm">Time until next race</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-semibold">1. Thunderbolt</span>
-                      <span className="text-amber-400">3:1</span>
-                    </div>
-                    <div className="text-xs text-zinc-500">Form: 1-2-1-3</div>
-                  </div>
-                  <div className="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-semibold">2. Lightning Strike</span>
-                      <span className="text-amber-400">5:1</span>
-                    </div>
-                    <div className="text-xs text-zinc-500">Form: 2-1-4-2</div>
-                  </div>
-                  <div className="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-semibold">3. Midnight Runner</span>
-                      <span className="text-amber-400">7:1</span>
-                    </div>
-                    <div className="text-xs text-zinc-500">Form: 3-3-2-1</div>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Race Feed</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  Upcoming races, odds, and horse form are now expected to come from your own server data instead of bundled examples.
+                </p>
               </div>
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Bet Limits</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Minimum Bet</span>
-                    <span className="text-white font-semibold">$20</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Maximum Bet</span>
-                    <span className="text-white font-semibold">$7,500</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">VIP Max Bet</span>
-                    <span className="text-amber-400 font-semibold">$30,000</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Reporting Notes</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  Use one unique report ID per race result so retries from the game server remain idempotent when posting to the API.
+                </p>
               </div>
             </div>
           </div>

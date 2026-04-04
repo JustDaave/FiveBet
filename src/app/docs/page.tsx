@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'FiveBet API Docs',
-  description: 'API documentation for FiveBet wallet and payout routes.',
+  description: 'API documentation for FiveBet wallet, payout, and game reporting routes.',
 }
 
 export default function DocsPage() {
@@ -98,11 +98,44 @@ export default function DocsPage() {
         </p>
       </section>
 
+      <section className="mb-8 rounded-xl border border-slate-200 bg-white/70 p-5">
+        <h2 className="mb-3 text-xl font-semibold">5) Report game results from your server</h2>
+        <p>
+          <strong>POST</strong> /api/game-reports
+        </p>
+        <p className="mt-2 text-slate-700">
+          Accepts either a single report object or a <strong>reports</strong> array. Each report must include a unique
+          <strong> reportId</strong> so retried posts remain idempotent.
+        </p>
+        <p className="mt-2 text-slate-700">Body:</p>
+        <pre className="mt-2 overflow-auto rounded bg-slate-900 p-3 text-xs text-slate-100">
+{`{
+  "reportId": "round-blackjack-0001",
+  "game": "blackjack",
+  "playerId": "player-123",
+  "serverId": "main-city-server",
+  "sessionId": "session-456",
+  "roundId": "round-456",
+  "betAmount": 500,
+  "payoutAmount": 1000,
+  "currency": "chips",
+  "result": "win",
+  "occurredAt": "2026-04-04T18:22:00.000Z",
+  "metadata": {
+    "tableId": "blackjack-a",
+    "dealerHand": [10, 8],
+    "playerHand": [1, 10]
+  }
+}`}
+        </pre>
+      </section>
+
       <section className="rounded-xl border border-slate-200 bg-white/70 p-5">
         <h2 className="mb-3 text-xl font-semibold">Notes</h2>
         <ul className="list-disc pl-6 text-slate-700">
           <li>These routes are server-side Next.js API endpoints.</li>
           <li>You can call them from external services as long as they can reach your deployed domain.</li>
+          <li>Game reports are stored in Supabase for later aggregation into live stats, leaderboards, and recent activity.</li>
           <li>Keep INTERNAL_API_KEY private and rotate it if leaked.</li>
         </ul>
       </section>

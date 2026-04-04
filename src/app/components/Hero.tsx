@@ -44,24 +44,24 @@ export function Hero({ backgroundImage }: HeroProps) {
             <div className="p-3 bg-amber-500/20 rounded-lg">
               <Users className="w-8 h-8 text-amber-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white">500+</h3>
-            <p className="text-zinc-400">Active Players</p>
+            <h3 className="text-2xl font-bold text-white">Server-Ready</h3>
+            <p className="text-zinc-400">Built for live game events from your FiveM server.</p>
           </div>
           
           <div className="flex flex-col items-center gap-3 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
             <div className="p-3 bg-amber-500/20 rounded-lg">
               <Sparkles className="w-8 h-8 text-amber-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white">5 Games</h3>
-            <p className="text-zinc-400">Premium Selection</p>
+            <h3 className="text-2xl font-bold text-white">Live Reporting</h3>
+            <p className="text-zinc-400">Real rounds, wagers, and payouts can flow straight into the site.</p>
           </div>
           
           <div className="flex flex-col items-center gap-3 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
             <div className="p-3 bg-amber-500/20 rounded-lg">
               <Trophy className="w-8 h-8 text-amber-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white">24/7</h3>
-            <p className="text-zinc-400">Live Gaming</p>
+            <h3 className="text-2xl font-bold text-white">Crypto Payouts</h3>
+            <p className="text-zinc-400">Wallet and payout routes stay available behind the same API key guard.</p>
           </div>
         </div>
       </div>

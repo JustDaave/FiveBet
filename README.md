@@ -20,6 +20,7 @@
   - `SUPABASE_URL`
   - `SUPABASE_SERVICE_ROLE_KEY`
   - `SUPABASE_PLAYER_WALLETS_TABLE` (optional, default: `player_wallets`)
+  - `SUPABASE_GAME_REPORTS_TABLE` (optional, default: `game_reports`)
   - `INTERNAL_API_KEY` (required, protects all `/api/*` routes)
   - `OXAPAY_MERCHANT_API_KEY`
   - `OXAPAY_PAYOUT_API_KEY`
@@ -28,7 +29,7 @@
 
   ### Supabase schema
 
-  Run SQL from `supabase/player_wallets.sql` in your Supabase SQL editor.
+  Run SQL from `supabase/player_wallets.sql` and `supabase/game_reports.sql` in your Supabase SQL editor.
 
   ### Endpoints
 
@@ -43,6 +44,11 @@
 
   - `GET /api/player-wallets/:playerId/balance`
     - Looks up the player's `track_id` and returns OxaPay payment/wallet info.
+
+  - `POST /api/game-reports`
+    - Stores game round results posted by your game server in Supabase.
+    - Accepts either one report object or a `reports` array.
+    - Uses `reportId` as an idempotent unique key for retries.
 
   ### API auth
 

@@ -8,22 +8,6 @@ import { ArrowLeft, Play, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SlotMachines() {
-  const leaderboardData = [
-    { rank: 1, name: 'JackpotJoe', winnings: '$35,600', gamesWon: 89 },
-    { rank: 2, name: 'SlotQueen', winnings: '$28,400', gamesWon: 72 },
-    { rank: 3, name: 'SpinToWin', winnings: '$24,100', gamesWon: 65 },
-    { rank: 4, name: 'LuckyCherry', winnings: '$19,800', gamesWon: 54 },
-    { rank: 5, name: 'MegaSpin', winnings: '$17,200', gamesWon: 48 },
-  ];
-
-  const recentGames = [
-    { player: 'JackpotJoe', bet: '$100', result: 'win' as const, payout: '$5,000', time: '1 min ago' },
-    { player: 'SlotQueen', bet: '$250', result: 'win' as const, payout: '$1,250', time: '3 min ago' },
-    { player: 'SpinToWin', bet: '$50', result: 'loss' as const, payout: '$50', time: '5 min ago' },
-    { player: 'LuckyCherry', bet: '$150', result: 'win' as const, payout: '$750', time: '7 min ago' },
-    { player: 'MegaSpin', bet: '$300', result: 'loss' as const, payout: '$300', time: '9 min ago' },
-  ];
-
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -64,12 +48,7 @@ export default function SlotMachines() {
               </div>
               
               <div className="mb-8">
-                <LiveGameStats 
-                  activePlayers={45}
-                  totalBets="$92,300"
-                  biggestWin="$35,600"
-                  winRate="38.4%"
-                />
+                <LiveGameStats />
               </div>
               
               <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6 mb-8">
@@ -105,48 +84,24 @@ export default function SlotMachines() {
                 </div>
               </div>
               
-              <RecentGames games={recentGames} />
+              <RecentGames games={[]} />
             </div>
             
             <div className="lg:col-span-1">
-              <Leaderboard players={leaderboardData} />
+              <Leaderboard players={[]} />
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Progressive Jackpot</h3>
-                <div className="text-center py-6">
-                  <div className="text-4xl font-bold text-transparent bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text mb-2">
-                    $847,293
-                  </div>
-                  <p className="text-zinc-400 text-sm">Current jackpot pool</p>
-                </div>
-                <div className="space-y-3 mt-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Min Bet to Qualify</span>
-                    <span className="text-white font-semibold">$50</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Last Jackpot Won</span>
-                    <span className="text-amber-400 font-semibold">3 days ago</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Jackpot Feed</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  Jackpot totals and recent large wins are intentionally blank until your slot server starts sending real payout events.
+                </p>
               </div>
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Bet Limits</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Minimum Spin</span>
-                    <span className="text-white font-semibold">$1</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Maximum Spin</span>
-                    <span className="text-white font-semibold">$500</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">VIP Max Spin</span>
-                    <span className="text-amber-400 font-semibold">$2,500</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Reporting Notes</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  Include spin metadata such as reel outcome, jackpot flag, or machine name in the report payload if you want richer slot history later.
+                </p>
               </div>
             </div>
           </div>

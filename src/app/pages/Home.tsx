@@ -13,8 +13,6 @@ export default function Home() {
       description: 'Test your luck against the dealer in this fast-paced poker variant. Ante up and chase the Royal Flush.',
       image: 'https://images.unsplash.com/photo-1560327317-031f46d0e995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbGF5aW5nJTIwY2FyZHMlMjBwb2tlcnxlbnwxfHx8fDE3NzI5MjgzNTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Spade,
-      isLive: true,
-      players: 24,
       link: '/games/three-card-poker'
     },
     {
@@ -22,8 +20,6 @@ export default function Home() {
       description: 'Beat the dealer to 21. Classic casino action with multiple tables and varying bet limits.',
       image: 'https://images.unsplash.com/photo-1618304925090-b68a8c744cbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFja2phY2slMjBjYXJkcyUyMGNhc2lub3xlbnwxfHx8fDE3NzI4OTI3MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Shuffle,
-      isLive: true,
-      players: 18,
       link: '/games/blackjack'
     },
     {
@@ -31,8 +27,6 @@ export default function Home() {
       description: 'Spin the wheel and place your bets. Red or black? Odds or evens? The choice is yours.',
       image: 'https://images.unsplash.com/photo-1592602944193-0848995f4b5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb3VsZXR0ZSUyMHdoZWVsJTIwY2FzaW5vfGVufDF8fHx8MTc3Mjg0MzE1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Circle,
-      isLive: true,
-      players: 32,
       link: '/games/roulette'
     },
     {
@@ -40,8 +34,6 @@ export default function Home() {
       description: 'Pull the lever and watch the reels spin. Jackpots, multipliers, and bonus rounds await.',
       image: 'https://images.unsplash.com/photo-1706129867447-b4f156c46641?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGNhc2lub3xlbnwxfHx8fDE3NzI4NzUxMTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Cherry,
-      isLive: false,
-      players: 45,
       link: '/games/slots'
     },
     {
@@ -49,8 +41,6 @@ export default function Home() {
       description: 'Bet on virtual horse racing. Watch the action unfold and cash in on your winning picks.',
       image: 'https://images.unsplash.com/photo-1555705920-ce69c04129c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3JzZSUyMHJhY2luZyUyMHRyYWNrfGVufDF8fHx8MTc3MjkyODM1M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Flag,
-      isLive: true,
-      players: 15,
       link: '/games/inside-track'
     }
   ];

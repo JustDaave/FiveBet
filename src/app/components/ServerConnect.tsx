@@ -40,15 +40,15 @@ export function ServerConnect() {
             <div className="flex flex-wrap gap-4 justify-center text-sm text-black/80">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span>Server Online</span>
+                <span>Authenticated API routes</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                <span>127 Players Online</span>
+                <span>Game reports stored in Supabase</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-white rounded-full" />
-                <span>Low Latency</span>
+                <span>Live dashboards unlock when reports arrive</span>
               </div>
             </div>
           </div>

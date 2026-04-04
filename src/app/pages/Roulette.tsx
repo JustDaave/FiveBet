@@ -8,22 +8,6 @@ import { ArrowLeft, Play, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Roulette() {
-  const leaderboardData = [
-    { rank: 1, name: 'SpinMaster', winnings: '$22,300', gamesWon: 56 },
-    { rank: 2, name: 'RedOrBlack', winnings: '$19,100', gamesWon: 48 },
-    { rank: 3, name: 'Lucky_Number_7', winnings: '$16,500', gamesWon: 42 },
-    { rank: 4, name: 'RouletteRoyale', winnings: '$14,200', gamesWon: 37 },
-    { rank: 5, name: 'ZeroHunter', winnings: '$11,800', gamesWon: 31 },
-  ];
-
-  const recentGames = [
-    { player: 'SpinMaster', bet: '$1,500', result: 'win' as const, payout: '$3,000', time: '30 sec ago' },
-    { player: 'RedOrBlack', bet: '$2,000', result: 'loss' as const, payout: '$2,000', time: '2 min ago' },
-    { player: 'Lucky_Number_7', bet: '$800', result: 'win' as const, payout: '$28,800', time: '5 min ago' },
-    { player: 'RouletteRoyale', bet: '$1,000', result: 'win' as const, payout: '$2,000', time: '7 min ago' },
-    { player: 'ZeroHunter', bet: '$500', result: 'loss' as const, payout: '$500', time: '10 min ago' },
-  ];
-
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -49,11 +33,6 @@ export default function Roulette() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
-                  <div className="absolute top-4 right-4 flex items-center gap-2 bg-red-500 px-4 py-2 rounded-full">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                    <span className="text-white font-semibold">LIVE</span>
-                  </div>
-                  
                   <div className="absolute bottom-6 left-6 right-6">
                     <h1 className="text-4xl font-bold text-white mb-2">Roulette</h1>
                     <p className="text-zinc-300 text-lg">Spin the wheel and place your bets. Classic European style!</p>
@@ -69,12 +48,7 @@ export default function Roulette() {
               </div>
               
               <div className="mb-8">
-                <LiveGameStats 
-                  activePlayers={32}
-                  totalBets="$78,500"
-                  biggestWin="$22,300"
-                  winRate="48.6%"
-                />
+                <LiveGameStats />
               </div>
               
               <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6 mb-8">
@@ -112,39 +86,24 @@ export default function Roulette() {
                 </div>
               </div>
               
-              <RecentGames games={recentGames} />
+              <RecentGames games={[]} />
             </div>
             
             <div className="lg:col-span-1">
-              <Leaderboard players={leaderboardData} />
+              <Leaderboard players={[]} />
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Table Limits</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Minimum Bet</span>
-                    <span className="text-white font-semibold">$5</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Maximum Bet</span>
-                    <span className="text-white font-semibold">$15,000</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">VIP Max Bet</span>
-                    <span className="text-amber-400 font-semibold">$100,000</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Table Data</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  Wheel results, stake limits, and table activity should now come from live server reports instead of static page data.
+                </p>
               </div>
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Hot Numbers (Last 100 Spins)</h3>
-                <div className="grid grid-cols-5 gap-2">
-                  {[7, 23, 14, 32, 17, 9, 28, 5, 19, 31].map((num) => (
-                    <div key={num} className="aspect-square bg-red-500/20 border border-red-500/30 rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold">{num}</span>
-                    </div>
-                  ))}
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Round History</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  If you want hot numbers or recent wheel outcomes here, report each completed spin with a unique ID and include the result in the metadata payload.
+                </p>
               </div>
             </div>
           </div>

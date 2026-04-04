@@ -8,22 +8,6 @@ import { ArrowLeft, Play, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Blackjack() {
-  const leaderboardData = [
-    { rank: 1, name: 'BlackjackKing', winnings: '$18,900', gamesWon: 45 },
-    { rank: 2, name: 'Card_Counter', winnings: '$15,300', gamesWon: 38 },
-    { rank: 3, name: 'Hit_Me_21', winnings: '$12,700', gamesWon: 32 },
-    { rank: 4, name: 'DealerBuster', winnings: '$10,400', gamesWon: 28 },
-    { rank: 5, name: 'StandPat', winnings: '$8,900', gamesWon: 24 },
-  ];
-
-  const recentGames = [
-    { player: 'BlackjackKing', bet: '$800', result: 'win' as const, payout: '$1,600', time: '1 min ago' },
-    { player: 'Card_Counter', bet: '$1,200', result: 'win' as const, payout: '$2,400', time: '4 min ago' },
-    { player: 'Hit_Me_21', bet: '$500', result: 'loss' as const, payout: '$500', time: '6 min ago' },
-    { player: 'DealerBuster', bet: '$900', result: 'win' as const, payout: '$1,800', time: '9 min ago' },
-    { player: 'StandPat', bet: '$600', result: 'loss' as const, payout: '$600', time: '11 min ago' },
-  ];
-
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -49,11 +33,6 @@ export default function Blackjack() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
-                  <div className="absolute top-4 right-4 flex items-center gap-2 bg-red-500 px-4 py-2 rounded-full">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                    <span className="text-white font-semibold">LIVE</span>
-                  </div>
-                  
                   <div className="absolute bottom-6 left-6 right-6">
                     <h1 className="text-4xl font-bold text-white mb-2">Blackjack</h1>
                     <p className="text-zinc-300 text-lg">Beat the dealer to 21. The classic casino favorite!</p>
@@ -69,12 +48,7 @@ export default function Blackjack() {
               </div>
               
               <div className="mb-8">
-                <LiveGameStats 
-                  activePlayers={18}
-                  totalBets="$62,800"
-                  biggestWin="$18,900"
-                  winRate="47.8%"
-                />
+                <LiveGameStats />
               </div>
               
               <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6 mb-8">
@@ -109,28 +83,18 @@ export default function Blackjack() {
                 </div>
               </div>
               
-              <RecentGames games={recentGames} />
+              <RecentGames games={[]} />
             </div>
             
             <div className="lg:col-span-1">
-              <Leaderboard players={leaderboardData} />
+              <Leaderboard players={[]} />
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Table Limits</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Minimum Bet</span>
-                    <span className="text-white font-semibold">$25</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Maximum Bet</span>
-                    <span className="text-white font-semibold">$10,000</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">VIP Max Bet</span>
-                    <span className="text-amber-400 font-semibold">$50,000</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Live Feed Status</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  This page no longer ships with sample blackjack activity. Once your server posts completed hands to
+                  <span className="text-amber-400"> /api/game-reports</span>, the recent rounds and leaderboard can be sourced from real reports.
+                </p>
               </div>
             </div>
           </div>

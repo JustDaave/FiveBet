@@ -1,13 +1,28 @@
 import { Users, TrendingUp, Trophy, DollarSign } from 'lucide-react';
 
 interface LiveGameStatsProps {
-  activePlayers: number;
-  totalBets: string;
-  biggestWin: string;
-  winRate: string;
+  activePlayers?: number | null;
+  totalBets?: string | null;
+  biggestWin?: string | null;
+  winRate?: string | null;
 }
 
 export function LiveGameStats({ activePlayers, totalBets, biggestWin, winRate }: LiveGameStatsProps) {
+  const hasStats = [activePlayers, totalBets, biggestWin, winRate].some(
+    (value) => value !== undefined && value !== null,
+  );
+
+  if (!hasStats) {
+    return (
+      <div className="rounded-xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950 p-6 text-center">
+        <p className="text-lg font-semibold text-white">Live statistics will appear here.</p>
+        <p className="mt-2 text-sm text-zinc-400">
+          Post completed rounds to the game reporting endpoint to populate player counts, wager volume, and payout summaries.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
       <div className="p-6 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800">
@@ -17,7 +32,7 @@ export function LiveGameStats({ activePlayers, totalBets, biggestWin, winRate }:
           </div>
           <p className="text-zinc-400 text-sm">Active Players</p>
         </div>
-        <p className="text-2xl font-bold text-white">{activePlayers}</p>
+        <p className="text-2xl font-bold text-white">{activePlayers ?? 'Pending'}</p>
       </div>
       
       <div className="p-6 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800">
@@ -27,7 +42,7 @@ export function LiveGameStats({ activePlayers, totalBets, biggestWin, winRate }:
           </div>
           <p className="text-zinc-400 text-sm">Total Bets (24h)</p>
         </div>
-        <p className="text-2xl font-bold text-white">{totalBets}</p>
+        <p className="text-2xl font-bold text-white">{totalBets ?? 'Pending'}</p>
       </div>
       
       <div className="p-6 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800">
@@ -37,7 +52,7 @@ export function LiveGameStats({ activePlayers, totalBets, biggestWin, winRate }:
           </div>
           <p className="text-zinc-400 text-sm">Biggest Win (24h)</p>
         </div>
-        <p className="text-2xl font-bold text-white">{biggestWin}</p>
+        <p className="text-2xl font-bold text-white">{biggestWin ?? 'Pending'}</p>
       </div>
       
       <div className="p-6 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800">
@@ -47,7 +62,7 @@ export function LiveGameStats({ activePlayers, totalBets, biggestWin, winRate }:
           </div>
           <p className="text-zinc-400 text-sm">Win Rate</p>
         </div>
-        <p className="text-2xl font-bold text-white">{winRate}</p>
+        <p className="text-2xl font-bold text-white">{winRate ?? 'Pending'}</p>
       </div>
     </div>
   );

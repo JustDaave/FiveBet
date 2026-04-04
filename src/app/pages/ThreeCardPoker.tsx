@@ -8,22 +8,6 @@ import { ArrowLeft, Play, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ThreeCardPoker() {
-  const leaderboardData = [
-    { rank: 1, name: 'PokerPro_Mike', winnings: '$12,450', gamesWon: 23 },
-    { rank: 2, name: 'CardShark88', winnings: '$9,200', gamesWon: 18 },
-    { rank: 3, name: 'LuckyAce', winnings: '$7,800', gamesWon: 15 },
-    { rank: 4, name: 'RoyalFlush', winnings: '$6,500', gamesWon: 12 },
-    { rank: 5, name: 'BluffMaster', winnings: '$5,900', gamesWon: 11 },
-  ];
-
-  const recentGames = [
-    { player: 'PokerPro_Mike', bet: '$500', result: 'win' as const, payout: '$1,500', time: '2 min ago' },
-    { player: 'CardShark88', bet: '$750', result: 'loss' as const, payout: '$750', time: '5 min ago' },
-    { player: 'LuckyAce', bet: '$1,000', result: 'win' as const, payout: '$3,000', time: '8 min ago' },
-    { player: 'BluffMaster', bet: '$250', result: 'win' as const, payout: '$500', time: '12 min ago' },
-    { player: 'RoyalFlush', bet: '$600', result: 'loss' as const, payout: '$600', time: '15 min ago' },
-  ];
-
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -49,11 +33,6 @@ export default function ThreeCardPoker() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
-                  <div className="absolute top-4 right-4 flex items-center gap-2 bg-red-500 px-4 py-2 rounded-full">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                    <span className="text-white font-semibold">LIVE</span>
-                  </div>
-                  
                   <div className="absolute bottom-6 left-6 right-6">
                     <h1 className="text-4xl font-bold text-white mb-2">Three-Card Poker</h1>
                     <p className="text-zinc-300 text-lg">Fast-paced poker action. Beat the dealer to win big!</p>
@@ -69,12 +48,7 @@ export default function ThreeCardPoker() {
               </div>
               
               <div className="mb-8">
-                <LiveGameStats 
-                  activePlayers={24}
-                  totalBets="$45,200"
-                  biggestWin="$12,500"
-                  winRate="42.3%"
-                />
+                <LiveGameStats />
               </div>
               
               <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6 mb-8">
@@ -110,28 +84,17 @@ export default function ThreeCardPoker() {
                 </div>
               </div>
               
-              <RecentGames games={recentGames} />
+              <RecentGames games={[]} />
             </div>
             
             <div className="lg:col-span-1">
-              <Leaderboard players={leaderboardData} />
+              <Leaderboard players={[]} />
               
               <div className="mt-8 bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-xl border border-zinc-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Table Limits</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Minimum Bet</span>
-                    <span className="text-white font-semibold">$10</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">Maximum Bet</span>
-                    <span className="text-white font-semibold">$5,000</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-zinc-400">VIP Max Bet</span>
-                    <span className="text-amber-400 font-semibold">$25,000</span>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Live Feed Status</h3>
+                <p className="text-sm text-zinc-400 leading-6">
+                  Table results, player standings, and payout summaries are now reserved for real report data instead of bundled poker examples.
+                </p>
               </div>
             </div>
           </div>

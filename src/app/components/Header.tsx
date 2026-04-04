@@ -1,5 +1,8 @@
-import { Coins, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+
+import logo from '@/images/logo.png';
 
 export function Header() {
   return (
@@ -7,6 +10,12 @@ export function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
+            <Image
+              src={logo}
+              alt="FiveBet logo"
+              className="h-11 w-auto"
+              priority
+            />
             <div>
               <h1 className="text-2xl font-bold text-white">FiveBet</h1>
               <p className="text-xs text-amber-400">Crypto Casino</p>

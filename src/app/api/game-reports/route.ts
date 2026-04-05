@@ -21,10 +21,20 @@ type GameReportInput = {
 };
 
 type GameReportRequestBody =
+  | GameReportInput[]
   | GameReportInput
   | {
       reports?: GameReportInput[];
     };
+
+type ValidatedGameReport = GameReportInput & {
+  reportId: string;
+  game: string;
+  betAmount: number;
+  payoutAmount: number;
+  currency: string;
+  metadata?: Record<string, unknown>;
+};
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -48,14 +58,17 @@ function normalizeReports(body: GameReportRequestBody): GameReportInput[] {
     return body;
   }
 
-  if (isRecord(body) && Array.isArray(body.reports)) {
+  if ("reports" in body && Array.isArray(body.reports)) {
     return body.reports;
   }
 
   return [body as GameReportInput];
 }
 
-function validateReport(report: GameReportInput, index: number) {
+function validateReport(
+  report: GameReportInput,
+  index: number,
+): ValidatedGameReport {
   if (!report.reportId || typeof report.reportId !== "string") {
     throw new Error(`reports[${index}].reportId is required`);
   }
@@ -82,6 +95,8 @@ function validateReport(report: GameReportInput, index: number) {
   if (report.metadata !== undefined && !isRecord(report.metadata)) {
     throw new Error(`reports[${index}].metadata must be an object when provided`);
   }
+
+  return report as ValidatedGameReport;
 }
 
 export async function POST(request: Request) {
@@ -96,12 +111,12 @@ export async function POST(request: Request) {
       );
     }
 
-    reports.forEach(validateReport);
+    const validatedReports = reports.map(validateReport);
 
     const env = getSupabaseServerEnv();
     const supabase = getSupabaseAdminClient();
 
-    const rows = reports.map((report) => {
+    const rows = validatedReports.map((report) => {
       const occurredAt = parseOccurredAt(report.occurredAt);
 
       return {

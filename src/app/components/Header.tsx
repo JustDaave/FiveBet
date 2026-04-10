@@ -2,7 +2,7 @@ import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logo from '@/images/logo.png';
+import logo from '@/images/logo2.png';
 
 export function Header() {
   return (
@@ -16,10 +16,6 @@ export function Header() {
               className="h-11 w-auto"
               priority
             />
-            <div>
-              <h1 className="text-2xl font-bold text-white">FiveBet</h1>
-              <p className="text-xs text-amber-400">Crypto Casino</p>
-            </div>
           </Link>
           
           <nav className="hidden md:flex items-center gap-6">

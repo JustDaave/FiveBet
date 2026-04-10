@@ -1,5 +1,7 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import Image from 'next/image';
 import { Sparkles, Users, Trophy } from 'lucide-react';
+import logobyself from '@/images/logobyself.png';
 
 interface HeroProps {
   backgroundImage: string;
@@ -18,8 +20,9 @@ export function Hero({ backgroundImage }: HeroProps) {
       </div>
       
       <div className="relative z-10 container mx-auto px-4 py-32 text-center">
-        <div className="inline-block mb-4 px-4 py-2 bg-amber-500/20 backdrop-blur-sm rounded-full border border-amber-500/30">
-          <span className="text-amber-400 text-sm font-semibold">🎰 FiveM's Premier Casino Experience</span>
+        <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-amber-500/20 backdrop-blur-sm rounded-full border border-amber-500/30">
+          <Image src={logobyself} alt="slot icon" width={20} height={20} className="rounded-sm" />
+          <span className="text-amber-400 text-sm font-semibold">FiveM's Premier Casino Experience</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 bg-clip-text text-transparent">

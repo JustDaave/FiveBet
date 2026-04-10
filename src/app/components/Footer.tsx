@@ -1,7 +1,8 @@
-import { Twitter, MessageCircle, Globe } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import Image from 'next/image';
 
 import logo from '@/images/logo.png';
+// Removed discordIcon import as we are using a direct URL
 
 export function Footer() {
   return (
@@ -24,15 +25,25 @@ export function Footer() {
               FiveM's premier crypto casino experience. Play responsibly and enjoy the thrill of the game.
             </p>
             <div className="flex gap-3">
-              <button className="p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors">
-                <Twitter className="w-5 h-5 text-zinc-400" />
-              </button>
-              <button className="p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors">
-                <MessageCircle className="w-5 h-5 text-zinc-400" />
-              </button>
-              <button className="p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors">
+              <a
+                href="https://fivebet.gg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="FiveBet website"
+                className="p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors"
+              >
                 <Globe className="w-5 h-5 text-zinc-400" />
-              </button>
+              </a>
+
+              <a
+                href="https://discord.gg/fivebet"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="FiveBet Discord"
+                className="p-2 bg-zinc-900 hover:bg-zinc-800 rounded-lg transition-colors"
+              >
+                <img src="/discord.svg" alt="FiveBet Discord" className="w-5 h-5" />
+              </a>
             </div>
           </div>
           
@@ -48,9 +59,21 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-zinc-400 hover:text-amber-400 transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-amber-400 transition-colors">Rules</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-amber-400 transition-colors">Contact</a></li>
+              <li>
+                <a href="/faq" className="text-zinc-400 hover:text-amber-400 transition-colors">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.gg/fivebet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
         </div>

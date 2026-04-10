@@ -47,8 +47,8 @@ export function Hero({ backgroundImage }: HeroProps) {
             <div className="p-3 bg-amber-500/20 rounded-lg">
               <Users className="w-8 h-8 text-amber-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white">Server-Ready</h3>
-            <p className="text-zinc-400">Built for live game events from your FiveM server.</p>
+            <h3 className="text-2xl font-bold text-white">No KYC</h3>
+            <p className="text-zinc-400">Join the server and play instantly without the need for ID verification</p>
           </div>
           
           <div className="flex flex-col items-center gap-3 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">

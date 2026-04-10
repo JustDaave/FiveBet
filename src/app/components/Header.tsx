@@ -28,9 +28,20 @@ export function Header() {
             <Menu className="w-6 h-6" />
           </button>
           
-          <button className="hidden md:block px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40">
-            Join Server
-          </button>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://discord.gg/your-invite"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#5865F2] text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:brightness-95"
+            >
+              Discord
+            </a>
+
+            <button className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40">
+              Join Server
+            </button>
+          </div>
         </div>
       </div>
     </header>

@@ -10,17 +10,6 @@ export function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <Image
-                src={logo}
-                alt="FiveBet logo"
-                className="h-12 w-auto rounded-lg"
-              />
-              <div>
-                <h3 className="text-xl font-bold text-white">FiveBet</h3>
-                <p className="text-xs text-amber-400">Crypto Casino</p>
-              </div>
-            </div>
             <p className="text-zinc-400 mb-4">
               FiveM's premier crypto casino experience. Play responsibly and enjoy the thrill of the game.
             </p>

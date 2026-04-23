@@ -10,6 +10,20 @@ function unauthorized() {
 }
 
 export function middleware(request: NextRequest) {
+  // Allow CORS preflight requests to pass without API key authentication.
+  // Browsers send an OPTIONS preflight without custom headers like `x-api-key`,
+  // so respond here to avoid 405 Method Not Allowed responses from the route.
+  if (request.method === 'OPTIONS') {
+    return NextResponse.json({}, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type,Authorization,x-api-key',
+      },
+    })
+  }
+
   const expectedKey = process.env.INTERNAL_API_KEY
 
   if (!expectedKey) {

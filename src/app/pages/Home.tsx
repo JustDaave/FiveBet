@@ -4,17 +4,10 @@ import { GameCard } from '../components/GameCard';
 import { Features } from '../components/Features';
 import { ServerConnect } from '../components/ServerConnect';
 import { Footer } from '../components/Footer';
-import { Spade, Circle, Shuffle, Cherry, Flag } from 'lucide-react';
+import { Circle, Shuffle, Flag } from 'lucide-react';
 
 export default function Home() {
   const games = [
-    {
-      title: 'Three-Card Poker',
-      description: 'Test your luck against the dealer in this fast-paced poker variant. Ante up and chase the Royal Flush.',
-      image: 'https://images.unsplash.com/photo-1560327317-031f46d0e995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbGF5aW5nJTIwY2FyZHMlMjBwb2tlcnxlbnwxfHx8fDE3NzI5MjgzNTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      icon: Spade,
-      link: '/games/three-card-poker'
-    },
     {
       title: 'Blackjack',
       description: 'Beat the dealer to 21. Classic casino action with multiple tables and varying bet limits.',
@@ -28,13 +21,6 @@ export default function Home() {
       image: 'https://images.unsplash.com/photo-1592602944193-0848995f4b5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb3VsZXR0ZSUyMHdoZWVsJTIwY2FzaW5vfGVufDF8fHx8MTc3Mjg0MzE1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Circle,
       link: '/games/roulette'
-    },
-    {
-      title: 'Slot Machines',
-      description: 'Pull the lever and watch the reels spin. Jackpots, multipliers, and bonus rounds await.',
-      image: 'https://images.unsplash.com/photo-1706129867447-b4f156c46641?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbG90JTIwbWFjaGluZSUyMGNhc2lub3xlbnwxfHx8fDE3NzI4NzUxMTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      icon: Cherry,
-      link: '/games/slots'
     },
     {
       title: 'Inside Track',

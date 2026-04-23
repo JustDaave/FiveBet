@@ -39,10 +39,7 @@ export async function POST(request: Request) {
     const body = (await request.json()) as CreatePlayerWalletBody;
 
     if (!body.playerId || typeof body.playerId !== "string") {
-      return NextResponse.json(
-        { error: "playerId is required" },
-        { status: 400 },
-      );
+      return jsonWithCors({ error: "playerId is required" }, { status: 400 });
     }
 
     const env = getServerEnv();
@@ -74,7 +71,7 @@ export async function POST(request: Request) {
         : null);
 
     if (!trackId || !address) {
-      return NextResponse.json(
+      return jsonWithCors(
         {
           error:
             "OxaPay static address response is missing track_id or address.",
@@ -101,10 +98,10 @@ export async function POST(request: Request) {
       .single();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return jsonWithCors({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json(
+    return jsonWithCors(
       {
         ok: true,
         wallet,
@@ -112,11 +109,26 @@ export async function POST(request: Request) {
       { status: 201 },
     );
   } catch (error) {
-    return NextResponse.json(
+    return jsonWithCors(
       {
         error: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 },
     );
   }
+}
+
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
+function jsonWithCors(body: unknown, init?: { status?: number }) {
+  const status = init?.status ?? 200;
+  return NextResponse.json(body, { status, headers: CORS_HEADERS });
+}
+
+export function OPTIONS() {
+  return NextResponse.json(null, { status: 204, headers: CORS_HEADERS });
 }
